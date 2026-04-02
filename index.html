@@ -1,12 +1,998 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Vercel Deployment</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>McKaig Grading & Excavation | We Shape the Mountain</title>
+<meta name="description" content="Premier grading, excavation, and land clearing across Chattanooga TN, Dalton GA, and the tri-state mountain region. Drainage-first approach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+–black: #0c0b09;
+–dark: #1a1814;
+–charcoal: #2a2620;
+–mud: #3d372e;
+–stone: #6b6156;
+–warm-gray: #9a8e80;
+–sand: #c4b8a6;
+–cream: #f0ebe2;
+–white: #faf8f4;
+–clay: #c4652a;
+–clay-bright: #e07030;
+–amber: #d4943c;
+–amber-light: #eab45c;
+–rust: #8b3a1a;
+–forest: #3a6a3a;
+–forest-light: #5a9a5a;
+–sky: #4a7a9a;
+}
+
+html { scroll-behavior: smooth; }
+body {
+font-family: ‘Outfit’, sans-serif;
+background: var(–white);
+color: var(–charcoal);
+overflow-x: hidden;
+-webkit-font-smoothing: antialiased;
+}
+
+/* ═══════════ NAV ═══════════ */
+.nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+background: rgba(250,248,244,0.95);
+backdrop-filter: blur(16px);
+border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.nav.scrolled { box-shadow: 0 2px 40px rgba(0,0,0,0.08); }
+.nav-inner {
+max-width: 1320px; margin: 0 auto;
+display: flex; align-items: center; justify-content: space-between;
+padding: 16px 32px;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-logo-tri {
+width: 36px; height: 32px;
+background: var(–clay);
+clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+.nav-logo-text {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.4rem; letter-spacing: 3px; color: var(–black); line-height: 1;
+}
+.nav-logo-sub {
+font-size: 0.55rem; letter-spacing: 4px; color: var(–clay);
+text-transform: uppercase; font-weight: 600;
+}
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a {
+font-size: 0.78rem; font-weight: 600; letter-spacing: 2px;
+text-transform: uppercase; color: var(–stone); text-decoration: none;
+transition: color 0.3s; position: relative;
+}
+.nav-links a::after {
+content: ‘’; position: absolute; bottom: -4px; left: 0; right: 0;
+height: 2px; background: var(–clay-bright); transform: scaleX(0);
+transition: transform 0.3s;
+}
+.nav-links a:hover { color: var(–clay); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-phone {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.2rem; letter-spacing: 2px; color: var(–clay);
+text-decoration: none; padding: 10px 24px;
+border: 2px solid var(–clay); transition: all 0.3s;
+}
+.nav-phone:hover { background: var(–clay); color: white; }
+.hamburger {
+display: none; background: none; border: none; cursor: pointer; padding: 8px;
+}
+.hamburger span {
+display: block; width: 24px; height: 2px; background: var(–black);
+margin: 5px 0; transition: 0.3s;
+}
+@media (max-width: 960px) {
+.nav-links { display: none; }
+.hamburger { display: block; }
+.nav-links.open {
+display: flex; flex-direction: column;
+position: absolute; top: 100%; left: 0; right: 0;
+background: var(–white); padding: 24px 32px;
+border-bottom: 1px solid rgba(0,0,0,0.08);
+box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+}
+
+/* ═══════════ HERO ═══════════ */
+.hero {
+min-height: 100vh;
+display: flex; align-items: center;
+background: var(–black); position: relative; overflow: hidden;
+padding: 120px 32px 80px;
+}
+.hero-bg {
+position: absolute; inset: 0;
+background:
+radial-gradient(ellipse 90% 70% at 70% 55%, rgba(196,101,42,0.18) 0%, transparent 55%),
+radial-gradient(ellipse 60% 50% at 15% 30%, rgba(58,106,58,0.08) 0%, transparent 50%),
+radial-gradient(ellipse 40% 30% at 85% 15%, rgba(212,148,60,0.08) 0%, transparent 50%),
+linear-gradient(165deg, #1a1814 0%, #0c0b09 40%, #1a1410 100%);
+}
+.hero-noise {
+position: absolute; inset: 0; opacity: 0.2;
+background: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘n’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.85’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23n)’ opacity=‘0.4’/%3E%3C/svg%3E”);
+pointer-events: none;
+}
+.hero-topo {
+position: absolute; right: -10%; top: 5%; width: 65%; height: 90%;
+opacity: 0.035;
+background: repeating-radial-gradient(ellipse at 30% 50%, transparent 0px, transparent 50px, rgba(196,101,42,0.6) 50px, rgba(196,101,42,0.6) 51px);
+pointer-events: none;
+}
+
+.hero-inner {
+position: relative; z-index: 2;
+max-width: 1320px; margin: 0 auto; width: 100%;
+display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center;
+}
+.hero-badge {
+display: inline-flex; align-items: center; gap: 10px;
+padding: 8px 18px; border: 1px solid rgba(196,101,42,0.35);
+font-size: 0.68rem; font-weight: 600; letter-spacing: 4px;
+text-transform: uppercase; color: var(–clay-bright);
+margin-bottom: 32px;
+opacity: 0; animation: fadeUp 0.8s 0.2s ease forwards;
+}
+.hero h1 {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(3.5rem, 7.5vw, 7.5rem);
+color: var(–cream); line-height: 0.9; letter-spacing: 3px;
+margin-bottom: 28px;
+opacity: 0; animation: fadeUp 0.8s 0.4s ease forwards;
+}
+.hero h1 em {
+font-style: normal;
+background: linear-gradient(135deg, var(–clay-bright), var(–amber));
+-webkit-background-clip: text; -webkit-text-fill-color: transparent;
+background-clip: text;
+}
+.hero-desc {
+font-size: 1.1rem; font-weight: 300; color: var(–sand);
+line-height: 1.85; max-width: 520px; margin-bottom: 44px;
+opacity: 0; animation: fadeUp 0.8s 0.6s ease forwards;
+}
+.hero-buttons {
+display: flex; gap: 14px; flex-wrap: wrap;
+opacity: 0; animation: fadeUp 0.8s 0.8s ease forwards;
+}
+
+.btn {
+display: inline-flex; align-items: center; gap: 10px;
+padding: 18px 36px; font-size: 0.82rem; font-weight: 700;
+letter-spacing: 3px; text-transform: uppercase;
+text-decoration: none; border: none; cursor: pointer; transition: all 0.3s;
+}
+.btn-clay {
+background: linear-gradient(135deg, var(–clay-bright), var(–clay));
+color: white; box-shadow: 0 4px 20px rgba(196,101,42,0.3);
+}
+.btn-clay:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(196,101,42,0.45); }
+.btn-glass {
+background: rgba(255,255,255,0.06); color: var(–cream);
+border: 1px solid rgba(255,255,255,0.15);
+}
+.btn-glass:hover { background: rgba(255,255,255,0.1); border-color: var(–clay-bright); }
+
+.hero-right {
+opacity: 0; animation: fadeUp 1s 1s ease forwards;
+}
+.hero-stats {
+display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+}
+.hero-stat {
+padding: 40px 28px;
+background: rgba(255,255,255,0.025);
+border: 1px solid rgba(255,255,255,0.04);
+transition: all 0.4s;
+}
+.hero-stat:nth-child(1) { border-radius: 8px 0 0 0; }
+.hero-stat:nth-child(2) { border-radius: 0 8px 0 0; }
+.hero-stat:nth-child(3) { border-radius: 0 0 0 8px; }
+.hero-stat:nth-child(4) { border-radius: 0 0 8px 0; }
+.hero-stat:hover {
+background: rgba(196,101,42,0.06);
+border-color: rgba(196,101,42,0.15);
+}
+.hero-stat-num {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 3.2rem; line-height: 1; margin-bottom: 8px;
+}
+.hero-stat:nth-child(1) .hero-stat-num { color: var(–clay-bright); }
+.hero-stat:nth-child(2) .hero-stat-num { color: var(–amber-light); }
+.hero-stat:nth-child(3) .hero-stat-num { color: var(–forest-light); }
+.hero-stat:nth-child(4) .hero-stat-num { color: var(–sky); }
+.hero-stat-label {
+font-size: 0.7rem; font-weight: 500; letter-spacing: 2px;
+text-transform: uppercase; color: var(–warm-gray);
+}
+
+/* Testimonial below stats */
+.hero-quote {
+margin-top: 4px; padding: 28px 32px;
+background: rgba(255,255,255,0.025);
+border: 1px solid rgba(255,255,255,0.04);
+border-radius: 0 0 8px 8px;
+}
+.hero-quote p {
+font-size: 0.92rem; font-style: italic; color: var(–sand);
+line-height: 1.6; font-weight: 300;
+}
+.hero-quote cite {
+display: block; margin-top: 10px;
+font-size: 0.72rem; font-style: normal; font-weight: 600;
+letter-spacing: 2px; text-transform: uppercase; color: var(–clay-bright);
+}
+
+.hero-scroll {
+position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+display: flex; flex-direction: column; align-items: center; gap: 8px;
+opacity: 0; animation: fadeUp 1s 1.3s ease forwards;
+}
+.hero-scroll span {
+font-size: 0.6rem; font-weight: 600; letter-spacing: 5px;
+text-transform: uppercase; color: var(–stone);
+}
+.hero-scroll-bar {
+width: 1px; height: 48px;
+background: linear-gradient(to bottom, var(–clay-bright), transparent);
+animation: pulse 2s ease infinite;
+}
+
+@media (max-width: 960px) {
+.hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+.hero-desc { margin-left: auto; margin-right: auto; }
+.hero-buttons { justify-content: center; }
+.hero-right { max-width: 500px; margin: 0 auto; }
+}
+
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+0%,100% { opacity: 0.3; }
+50% { opacity: 1; }
+}
+
+/* ═══════════ SERVICES ═══════════ */
+.services {
+padding: 160px 32px;
+background: var(–white);
+}
+.wrap { max-width: 1200px; margin: 0 auto; }
+.section-center { text-align: center; margin-bottom: 88px; }
+.section-tag {
+font-size: 0.72rem; font-weight: 700; letter-spacing: 6px;
+text-transform: uppercase; color: var(–clay);
+margin-bottom: 16px;
+}
+.section-heading {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(2.5rem, 5vw, 4rem);
+color: var(–black); letter-spacing: 2px; line-height: 1;
+margin-bottom: 20px;
+}
+.section-sub {
+font-size: 1.05rem; font-weight: 300; color: var(–stone);
+max-width: 580px; margin: 0 auto; line-height: 1.8;
+}
+.section-bar {
+width: 50px; height: 3px; margin: 24px auto 0;
+background: linear-gradient(90deg, var(–clay-bright), var(–amber));
+border-radius: 2px;
+}
+
+.svc-grid {
+display: grid; grid-template-columns: repeat(3, 1fr);
+gap: 28px;
+}
+.svc {
+padding: 52px 40px;
+background: var(–white);
+border: 1px solid rgba(0,0,0,0.06);
+border-radius: 6px;
+position: relative; overflow: hidden;
+transition: all 0.4s;
+}
+.svc:hover {
+transform: translateY(-6px);
+box-shadow: 0 24px 64px rgba(0,0,0,0.08);
+border-color: transparent;
+}
+.svc-bar {
+position: absolute; top: 0; left: 0; right: 0; height: 4px;
+border-radius: 6px 6px 0 0;
+transform: scaleX(0); transform-origin: left;
+transition: transform 0.4s;
+}
+.svc:hover .svc-bar { transform: scaleX(1); }
+.svc:nth-child(1) .svc-bar { background: var(–clay-bright); }
+.svc:nth-child(2) .svc-bar { background: var(–amber); }
+.svc:nth-child(3) .svc-bar { background: var(–forest); }
+.svc:nth-child(4) .svc-bar { background: var(–sky); }
+.svc:nth-child(5) .svc-bar { background: var(–rust); }
+.svc:nth-child(6) .svc-bar { background: linear-gradient(90deg, var(–clay-bright), var(–amber)); }
+
+.svc-icon {
+width: 60px; height: 60px; border-radius: 6px;
+display: flex; align-items: center; justify-content: center;
+margin-bottom: 28px; font-size: 1.6rem;
+}
+.svc:nth-child(1) .svc-icon { background: rgba(224,112,48,0.08); color: var(–clay-bright); }
+.svc:nth-child(2) .svc-icon { background: rgba(212,148,60,0.08); color: var(–amber); }
+.svc:nth-child(3) .svc-icon { background: rgba(58,106,58,0.08); color: var(–forest); }
+.svc:nth-child(4) .svc-icon { background: rgba(74,122,154,0.08); color: var(–sky); }
+.svc:nth-child(5) .svc-icon { background: rgba(139,58,26,0.08); color: var(–rust); }
+.svc:nth-child(6) .svc-icon { background: rgba(224,112,48,0.06); color: var(–clay); }
+
+.svc h3 {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.45rem; letter-spacing: 2px; color: var(–black);
+margin-bottom: 14px;
+}
+.svc p {
+font-size: 0.93rem; font-weight: 300; color: var(–stone); line-height: 1.75;
+}
+
+@media (max-width: 960px) { .svc-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .svc-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════ WHY (Dark) ═══════════ */
+.why {
+padding: 160px 32px;
+background: var(–black); color: var(–cream);
+position: relative; overflow: hidden;
+}
+.why::before {
+content: ‘’; position: absolute; inset: 0;
+background:
+radial-gradient(ellipse 50% 60% at 85% 30%, rgba(196,101,42,0.08) 0%, transparent 60%),
+radial-gradient(ellipse 40% 50% at 10% 80%, rgba(58,106,58,0.05) 0%, transparent 50%);
+}
+.why-wrap { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
+.why .section-tag { color: var(–amber-light); }
+.why .section-heading { color: var(–cream); }
+.why .section-sub { color: var(–sand); }
+.why .section-bar { background: linear-gradient(90deg, var(–amber-light), var(–clay-bright)); }
+
+.why-grid {
+display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+}
+.why-card {
+padding: 52px 44px;
+background: rgba(255,255,255,0.02);
+border: 1px solid rgba(255,255,255,0.05);
+border-radius: 6px;
+transition: all 0.4s;
+}
+.why-card:hover {
+background: rgba(196,101,42,0.04);
+border-color: rgba(196,101,42,0.2);
+transform: translateY(-3px);
+}
+.why-card-head {
+display: flex; align-items: center; gap: 18px;
+margin-bottom: 22px;
+}
+.why-card-ico {
+width: 48px; height: 48px; min-width: 48px;
+border-radius: 4px;
+display: flex; align-items: center; justify-content: center;
+font-size: 1.3rem; color: white;
+}
+.why-card:nth-child(1) .why-card-ico { background: var(–clay-bright); }
+.why-card:nth-child(2) .why-card-ico { background: var(–amber); }
+.why-card:nth-child(3) .why-card-ico { background: var(–forest); }
+.why-card:nth-child(4) .why-card-ico { background: var(–sky); }
+
+.why-card h4 {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.35rem; letter-spacing: 2px; color: var(–cream);
+}
+.why-card p {
+font-size: 0.93rem; font-weight: 300; color: var(–sand); line-height: 1.85;
+}
+
+@media (max-width: 700px) { .why-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════ SERVICE AREA ═══════════ */
+.area {
+padding: 160px 32px;
+background: var(–white);
+}
+.area-grid {
+display: grid; grid-template-columns: repeat(3, 1fr);
+gap: 32px;
+}
+.region {
+padding: 44px 36px;
+background: var(–white);
+border: 1px solid rgba(0,0,0,0.06);
+border-radius: 8px;
+transition: all 0.3s;
+}
+.region:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.06); }
+.region-head {
+display: flex; align-items: center; gap: 12px;
+margin-bottom: 28px; padding-bottom: 18px;
+}
+.region:nth-child(1) .region-head { border-bottom: 3px solid var(–clay-bright); }
+.region:nth-child(2) .region-head { border-bottom: 3px solid var(–amber); }
+.region:nth-child(3) .region-head { border-bottom: 3px solid var(–forest); }
+.region-head h3 {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.5rem; letter-spacing: 3px; color: var(–black);
+}
+.region-towns { display: flex; flex-wrap: wrap; gap: 8px; }
+.region-town {
+font-size: 0.78rem; font-weight: 500; color: var(–stone);
+padding: 7px 14px; background: rgba(0,0,0,0.025);
+border-radius: 4px; transition: all 0.2s; cursor: default;
+}
+.region:nth-child(1) .region-town:hover { background: var(–clay-bright); color: white; }
+.region:nth-child(2) .region-town:hover { background: var(–amber); color: white; }
+.region:nth-child(3) .region-town:hover { background: var(–forest); color: white; }
+
+@media (max-width: 768px) { .area-grid { grid-template-columns: 1fr; } }
+
+/* ═══════════ CTA ═══════════ */
+.cta {
+padding: 110px 32px;
+background: linear-gradient(135deg, var(–clay-bright) 0%, var(–clay) 40%, var(–rust) 100%);
+position: relative; overflow: hidden; text-align: center;
+}
+.cta::before {
+content: ‘’; position: absolute; inset: 0;
+background: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘n’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘3’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23n)’ opacity=‘0.25’/%3E%3C/svg%3E”);
+opacity: 0.1;
+}
+.cta > * { position: relative; z-index: 1; }
+.cta h2 {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+color: white; letter-spacing: 3px; margin-bottom: 18px;
+}
+.cta p {
+font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.85);
+max-width: 520px; margin: 0 auto 44px; line-height: 1.75;
+}
+.btn-white {
+display: inline-flex; padding: 20px 44px;
+background: white; color: var(–clay);
+font-size: 0.85rem; font-weight: 700; letter-spacing: 3px;
+text-transform: uppercase; text-decoration: none;
+border-radius: 4px;
+transition: all 0.3s; border: none; cursor: pointer;
+box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.btn-white:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(0,0,0,0.25); }
+
+/* ═══════════ CONTACT ═══════════ */
+.contact {
+padding: 160px 32px;
+background: #f5f1ea;
+}
+.contact-inner {
+max-width: 1200px; margin: 0 auto;
+display: grid; grid-template-columns: 1fr 1.15fr; gap: 88px; align-items: start;
+}
+.contact-left h3 {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(2.2rem, 4vw, 3.4rem);
+color: var(–black); letter-spacing: 2px; line-height: 1.05;
+margin-bottom: 24px;
+}
+.contact-left > p {
+font-size: 1rem; font-weight: 300; color: var(–stone);
+line-height: 1.85; margin-bottom: 44px; max-width: 440px;
+}
+.c-detail {
+display: flex; gap: 18px; align-items: center;
+margin-bottom: 18px; padding: 22px 26px;
+background: white; border-radius: 8px;
+box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+transition: all 0.3s;
+}
+.c-detail:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.c-ico {
+width: 50px; height: 50px; min-width: 50px; border-radius: 6px;
+display: flex; align-items: center; justify-content: center;
+}
+.c-ico svg { width: 22px; height: 22px; }
+.c-ico.ph { background: rgba(224,112,48,0.08); }
+.c-ico.em { background: rgba(212,148,60,0.08); }
+.c-ico.lo { background: rgba(58,106,58,0.08); }
+.c-label {
+font-size: 0.62rem; font-weight: 700; letter-spacing: 3px;
+text-transform: uppercase; color: var(–warm-gray); margin-bottom: 4px;
+}
+.c-val {
+font-size: 1.05rem; font-weight: 600; color: var(–black);
+text-decoration: none; display: block; transition: color 0.3s;
+}
+a.c-val:hover { color: var(–clay); }
+
+/* Form */
+.contact-form {
+background: white; border-radius: 12px;
+padding: 56px; box-shadow: 0 8px 48px rgba(0,0,0,0.06);
+}
+.form-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.7rem; letter-spacing: 2px; color: var(–black);
+margin-bottom: 6px;
+}
+.form-sub {
+font-size: 0.88rem; color: var(–stone); margin-bottom: 36px; font-weight: 300;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+.form-group { display: flex; flex-direction: column; }
+.form-group.full { grid-column: 1 / -1; }
+label {
+font-size: 0.68rem; font-weight: 700; letter-spacing: 2px;
+text-transform: uppercase; color: var(–stone); margin-bottom: 8px;
+}
+input, select, textarea {
+padding: 15px 18px; border: 1px solid rgba(0,0,0,0.08);
+border-radius: 6px; font-family: ‘Outfit’, sans-serif;
+font-size: 0.95rem; color: var(–black);
+background: #faf8f4; transition: all 0.3s; outline: none; width: 100%;
+}
+input:focus, select:focus, textarea:focus {
+border-color: var(–clay-bright);
+box-shadow: 0 0 0 3px rgba(224,112,48,0.1);
+}
+textarea { resize: vertical; min-height: 130px; }
+.form-btn {
+margin-top: 28px; width: 100%; padding: 20px;
+background: linear-gradient(135deg, var(–clay-bright), var(–clay));
+color: white; font-family: ‘Outfit’, sans-serif; font-size: 0.85rem;
+font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s;
+box-shadow: 0 4px 16px rgba(196,101,42,0.25);
+}
+.form-btn:hover { box-shadow: 0 8px 28px rgba(196,101,42,0.4); transform: translateY(-2px); }
+
+@media (max-width: 960px) {
+.contact-inner { grid-template-columns: 1fr; gap: 48px; }
+.form-row { grid-template-columns: 1fr; }
+}
+
+/* ═══════════ FOOTER ═══════════ */
+footer {
+padding: 72px 32px 48px;
+background: var(–black); text-align: center;
+}
+.f-phone {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 2rem; letter-spacing: 4px; color: var(–clay-bright);
+text-decoration: none; display: block; margin-bottom: 24px;
+transition: color 0.3s;
+}
+.f-phone:hover { color: var(–amber-light); }
+.f-logo {
+display: inline-flex; align-items: center; gap: 10px; margin-bottom: 28px;
+}
+.f-logo-tri { width: 28px; height: 24px; background: var(–clay); clip-path: polygon(50% 0%, 100% 100%, 0% 100%); }
+.f-logo-name {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.2rem; letter-spacing: 3px; color: var(–cream);
+}
+.f-links { display: flex; gap: 28px; justify-content: center; margin-bottom: 36px; flex-wrap: wrap; }
+.f-links a {
+font-size: 0.72rem; font-weight: 600; letter-spacing: 3px;
+text-transform: uppercase; color: var(–stone);
+text-decoration: none; transition: color 0.3s;
+}
+.f-links a:hover { color: var(–clay-bright); }
+.f-divider { width: 60px; height: 1px; background: var(–mud); margin: 0 auto 28px; }
+.f-copy {
+font-size: 0.75rem; color: var(–stone); font-weight: 300; line-height: 1.7;
+}
+
+/* ═══════════ REVEAL ═══════════ */
+.reveal {
+opacity: 0; transform: translateY(40px);
+transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.vis { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+</style>
+
 </head>
 <body>
-    <h1>Welcome to My Vercel Deployment!</h1>
-    <p>This is the main index file for my application.</p>
+
+<!-- NAV -->
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-tri"></div>
+      <div>
+        <div class="nav-logo-text">MCKAIG</div>
+        <div class="nav-logo-sub">Grading & Excavation</div>
+      </div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#area">Service Area</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="tel:4235551234" class="nav-phone">423-555-1234</a>
+    <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-topo"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">◆ Chattanooga · Dalton · Cleveland</div>
+      <h1>WE SHAPE<br>THE <em>MOUNTAIN</em></h1>
+      <p class="hero-desc">Grading, excavation, and land clearing for residential, commercial, and municipal projects across the tri-state Appalachian region. Drainage-first. Mountain-proven.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-clay">Get a Free Quote →</a>
+        <a href="tel:4235551234" class="btn btn-glass">☎ 423-555-1234</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">30+</div>
+          <div class="hero-stat-label">Years Experience</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">1,200+</div>
+          <div class="hero-stat-label">Projects Done</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">3</div>
+          <div class="hero-stat-label">States Covered</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">100%</div>
+          <div class="hero-stat-label">Drainage Focus</div>
+        </div>
+      </div>
+      <div class="hero-quote">
+        <p>"Jerry graded our lot on Lookout Mountain when two other companies said it couldn't be done. Water drains perfectly — even after the heavy rains."</p>
+        <cite>— Homeowner, Lookout Mountain TN</cite>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-bar"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-center reveal">
+      <div class="section-tag">What We Do</div>
+      <div class="section-heading">BUILT FOR MOUNTAIN WORK</div>
+      <p class="section-sub">We don't grade flat land and call it a day. Every slope, every drainage path, every foot of elevation is accounted for.</p>
+      <div class="section-bar"></div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="svc-bar"></div>
+        <div class="svc-icon">▲</div>
+        <h3>SITE GRADING</h3>
+        <p>Precision rough and finish grading for new construction, pads, driveways, and parking lots. We read the terrain and work with the mountain — not against it.</p>
+      </div>
+      <div class="svc reveal reveal-d1">
+        <div class="svc-bar"></div>
+        <div class="svc-icon">⬟</div>
+        <h3>EXCAVATION</h3>
+        <p>Basement digs, foundation prep, utility trenching, and pond excavation. Heavy-grade equipment for rocky Appalachian soil and tight mountain lots.</p>
+      </div>
+      <div class="svc reveal reveal-d2">
+        <div class="svc-bar"></div>
+        <div class="svc-icon">🌲</div>
+        <h3>LAND CLEARING</h3>
+        <p>Timber removal, stump grinding, brush clearing, and debris hauling. We open up buildable land while preserving the trees and terrain you want to keep.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="svc-bar"></div>
+        <div class="svc-icon">〰</div>
+        <h3>DRAINAGE SOLUTIONS</h3>
+        <p>French drains, swales, culverts, retention ponds, and grade-to-drain systems. Mountain water management is where most contractors fail — it's where we start.</p>
+      </div>
+      <div class="svc reveal reveal-d1">
+        <div class="svc-bar"></div>
+        <div class="svc-icon">◼</div>
+        <h3>ROAD BUILDING</h3>
+        <p>Private roads, access drives, logging roads, and subdivision infrastructure. Gravel base, proper crown, drainage ditching — roads that survive Appalachian weather.</p>
+      </div>
+      <div class="svc reveal reveal-d2">
+        <div class="svc-bar"></div>
+        <div class="svc-icon">⬡</div>
+        <h3>DEMOLITION & HAULING</h3>
+        <p>Structure demolition, concrete removal, site cleanup, and material hauling. We clear the old to make room for the new — and haul every piece of it out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY MCKAIG -->
+
+<section class="why" id="why">
+  <div class="why-wrap">
+    <div class="section-center reveal">
+      <div class="section-tag">Why McKaig</div>
+      <div class="section-heading">MOUNTAIN EXPERTISE.<br>DRAINAGE-FIRST APPROACH.</div>
+      <p class="section-sub">Most grading companies learn on flat ground. We were raised on ridgelines, hollers, and slopes that punish mistakes.</p>
+      <div class="section-bar"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-card-head">
+          <div class="why-card-ico">▼</div>
+          <h4>DRAINAGE COMES FIRST</h4>
+        </div>
+        <p>Before we move a single yard of dirt, we map where water wants to go. Every cut and fill is designed around drainage — not the other way around. That's why our sites don't wash out.</p>
+      </div>
+      <div class="why-card reveal reveal-d1">
+        <div class="why-card-head">
+          <div class="why-card-ico">▲</div>
+          <h4>MOUNTAIN-GRADE EQUIPMENT</h4>
+        </div>
+        <p>Cat 320 excavators, D6 dozers, GPS-guided grading rigs. Iron that handles 30% slopes, solid rock, and terrain that sends flatland operators home.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-card-head">
+          <div class="why-card-ico">◆</div>
+          <h4>TRI-STATE SOIL KNOWLEDGE</h4>
+        </div>
+        <p>We know the clay in Catoosa County, the rock shelves in Hamilton County, and the soft loam in Bradley County. Local soil knowledge means fewer surprises and tighter bids.</p>
+      </div>
+      <div class="why-card reveal reveal-d1">
+        <div class="why-card-head">
+          <div class="why-card-ico">■</div>
+          <h4>OWNER ON EVERY JOB</h4>
+        </div>
+        <p>Jerry McKaig is on-site or a phone call away for every project. No layers of project managers. One man's name on the equipment and on the handshake.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+
+<section class="area" id="area">
+  <div class="wrap">
+    <div class="section-center reveal">
+      <div class="section-tag">Coverage</div>
+      <div class="section-heading">TRI-STATE MOUNTAIN TERRITORY</div>
+      <p class="section-sub">From Signal Mountain to Calhoun, Fort Oglethorpe to Blue Ridge — if it's in the southern Appalachian foothills, we've graded it.</p>
+      <div class="section-bar"></div>
+    </div>
+    <div class="area-grid">
+      <div class="region reveal">
+        <div class="region-head"><h3>🍑 GEORGIA</h3></div>
+        <div class="region-towns">
+          <span class="region-town">Dalton</span>
+          <span class="region-town">Ringgold</span>
+          <span class="region-town">Fort Oglethorpe</span>
+          <span class="region-town">Chickamauga</span>
+          <span class="region-town">LaFayette</span>
+          <span class="region-town">Chatsworth</span>
+          <span class="region-town">Calhoun</span>
+          <span class="region-town">Rocky Face</span>
+          <span class="region-town">Tunnel Hill</span>
+          <span class="region-town">Cohutta</span>
+          <span class="region-town">Ellijay</span>
+          <span class="region-town">Blue Ridge</span>
+          <span class="region-town">Jasper</span>
+          <span class="region-town">Varnell</span>
+          <span class="region-town">Eton</span>
+          <span class="region-town">Resaca</span>
+        </div>
+      </div>
+      <div class="region reveal reveal-d1">
+        <div class="region-head"><h3>⭐ TENNESSEE</h3></div>
+        <div class="region-towns">
+          <span class="region-town">Chattanooga</span>
+          <span class="region-town">East Ridge</span>
+          <span class="region-town">Red Bank</span>
+          <span class="region-town">Signal Mountain</span>
+          <span class="region-town">Lookout Mountain</span>
+          <span class="region-town">Soddy-Daisy</span>
+          <span class="region-town">Hixson</span>
+          <span class="region-town">Ooltewah</span>
+          <span class="region-town">Cleveland</span>
+          <span class="region-town">Collegedale</span>
+          <span class="region-town">Harrison</span>
+          <span class="region-town">Benton</span>
+          <span class="region-town">Birchwood</span>
+          <span class="region-town">Dayton</span>
+          <span class="region-town">Dunlap</span>
+        </div>
+      </div>
+      <div class="region reveal reveal-d2">
+        <div class="region-head"><h3>🏔 ALABAMA</h3></div>
+        <div class="region-towns">
+          <span class="region-town">Scottsboro</span>
+          <span class="region-town">Bridgeport</span>
+          <span class="region-town">Stevenson</span>
+          <span class="region-town">South Pittsburg</span>
+          <span class="region-town">Jasper</span>
+          <span class="region-town">Fort Payne</span>
+          <span class="region-town">Rainsville</span>
+          <span class="region-town">Henagar</span>
+          <span class="region-town">Section</span>
+          <span class="region-town">Mentone</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+  <h2 class="reveal">READY TO MOVE SOME EARTH?</h2>
+  <p class="reveal">Free estimates on residential and commercial grading, excavation, and land clearing across the tri-state region.</p>
+  <a href="#contact" class="btn-white reveal">Request Your Free Estimate →</a>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="reveal">
+        <div class="section-tag">Get In Touch</div>
+        <h3>LET'S TALK<br>ABOUT YOUR<br>PROJECT</h3>
+        <p>Whether you need a driveway graded or a 50-acre site cleared, it starts with a conversation. Call Jerry directly or fill out the form.</p>
+      </div>
+      <div class="reveal">
+        <div class="c-detail">
+          <div class="c-ico ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e07030" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="c-label">Call Direct</div>
+            <a href="tel:4235551234" class="c-val">423-555-1234</a>
+          </div>
+        </div>
+        <div class="c-detail">
+          <div class="c-ico em">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d4943c" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+          </div>
+          <div>
+            <div class="c-label">Email</div>
+            <a href="mailto:jerry@mckaiggrading.com" class="c-val">jerry@mckaiggrading.com</a>
+          </div>
+        </div>
+        <div class="c-detail">
+          <div class="c-ico lo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3a6a3a" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="c-label">Based In</div>
+            <span class="c-val">Chattanooga / Dalton Area</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <div class="form-title">REQUEST A FREE ESTIMATE</div>
+      <p class="form-sub">We typically respond within a few hours.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Your first name">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Your last name">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="(423) 555-0000">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@example.com">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group full">
+          <label>Project Type</label>
+          <select>
+            <option value="">Select a project type...</option>
+            <option>Site Grading — Residential</option>
+            <option>Site Grading — Commercial</option>
+            <option>Excavation & Foundation</option>
+            <option>Land Clearing</option>
+            <option>Drainage / Erosion Control</option>
+            <option>Road Building / Driveways</option>
+            <option>Demolition & Hauling</option>
+            <option>Other / Not Sure</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group full">
+          <label>Project Details</label>
+          <textarea placeholder="Tell us about your project — location, size, timeline, anything helpful..."></textarea>
+        </div>
+      </div>
+      <button class="form-btn">Send Request →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <a href="tel:4235551234" class="f-phone">423-555-1234</a>
+  <div class="f-logo">
+    <div class="f-logo-tri"></div>
+    <div class="f-logo-name">MCKAIG</div>
+  </div>
+  <div class="f-links">
+    <a href="#services">Services</a>
+    <a href="#why">Why Us</a>
+    <a href="#area">Service Area</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="f-divider"></div>
+  <p class="f-copy">© 2026 McKaig Grading & Excavation. All rights reserved.<br>Chattanooga, TN · Dalton, GA · Tri-State Appalachian Region</p>
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Nav shadow
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+</script>
+
 </body>
 </html>
