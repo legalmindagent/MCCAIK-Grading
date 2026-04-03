@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="https://upload.wikimedia.org/wikipedia/commons/7/7a/Gfp-tennessee-lookout-mountain-the-point.jpg">
+  <link rel="preload" as="image" href="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Gfp-tennessee-lookout-mountain-the-point.jpg/1600px-Gfp-tennessee-lookout-mountain-the-point.jpg">
   <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -53,7 +53,7 @@ body { font-family: 'Outfit', sans-serif; background: var(--white); color: var(-
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 32px 80px}
-.hero-bg{position:absolute;inset:0;background:url('https://upload.wikimedia.org/wikipedia/commons/7/7a/Gfp-tennessee-lookout-mountain-the-point.jpg') center/cover no-repeat;will-change:transform}
+.hero-bg{position:absolute;inset:0;background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Gfp-tennessee-lookout-mountain-the-point.jpg/1600px-Gfp-tennessee-lookout-mountain-the-point.jpg') center/cover no-repeat;will-change:transform}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(165deg,rgba(12,11,9,.94) 0%,rgba(26,24,20,.82) 35%,rgba(26,20,16,.65) 100%)}
 .hero-noise{position:absolute;inset:0;opacity:.08;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");pointer-events:none}
 .hero-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:center}
@@ -96,7 +96,7 @@ body { font-family: 'Outfit', sans-serif; background: var(--white); color: var(-
 
 /* CLOUDLAND */
 .cloudland{padding:140px 32px;position:relative;overflow:hidden}
-.cloudland-bg{position:absolute;inset:0;background:url('https://upload.wikimedia.org/wikipedia/commons/7/72/Cloudland_Canyon_view%2C_October_2016_2.jpg') center/cover no-repeat;will-change:transform}
+.cloudland-bg{position:absolute;inset:0;background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Cloudland_Canyon_view%2C_October_2016_2.jpg/1600px-Cloudland_Canyon_view%2C_October_2016_2.jpg') center/cover no-repeat;will-change:transform}
 .cloudland-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(250,248,244,.88) 0%,rgba(240,235,226,.75) 50%,rgba(250,248,244,.92) 100%)}
 .cloudland-inner{max-width:900px;margin:0 auto;text-align:center;position:relative;z-index:1}
 .cloudland-inner blockquote{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,4vw,3.2rem);color:var(--black);letter-spacing:2px;line-height:1.12;margin-bottom:24px}
@@ -157,7 +157,7 @@ body { font-family: 'Outfit', sans-serif; background: var(--white); color: var(-
 
 /* WHY */
 .why{padding:160px 32px;color:var(--cream);position:relative;overflow:hidden}
-.why-bg{position:absolute;inset:0;background:url('https://upload.wikimedia.org/wikipedia/commons/6/66/Cloudland_Canyon_view%2C_October_2016_1.jpg') center/cover no-repeat;will-change:transform}
+.why-bg{position:absolute;inset:0;background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Cloudland_Canyon_view%2C_October_2016_1.jpg/1600px-Cloudland_Canyon_view%2C_October_2016_1.jpg') center/cover no-repeat;will-change:transform}
 .why-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,11,9,.94) 0%,rgba(12,11,9,.88) 50%,rgba(12,11,9,.96) 100%)}
 .why-wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto}
 .why .section-tag{color:var(--amber-light)}.why .section-heading{color:var(--cream)}.why .section-sub{color:var(--sand)}.why .section-bar{background:linear-gradient(90deg,var(--amber-light),var(--clay-bright))}
@@ -262,6 +262,24 @@ footer{padding:72px 32px 48px;background:var(--black);text-align:center}
 @media(max-width:768px){.mobile-call{display:flex}}
 @keyframes callPulse{0%,100%{box-shadow:0 6px 28px rgba(196,101,42,.45)}50%{box-shadow:0 6px 28px rgba(196,101,42,.7),0 0 0 12px rgba(196,101,42,.1)}}
 
+/* EMPLOYMENT */
+.employment{padding:140px 32px;background:var(--white)}
+.employ-inner{max-width:900px;margin:0 auto}
+.employ-form{background:white;border-radius:16px;padding:56px;box-shadow:0 8px 48px rgba(0,0,0,.06);border:1px solid rgba(0,0,0,.04)}
+.employ-form .form-title{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:2px;color:var(--black);margin-bottom:6px}
+.employ-form .form-sub{font-size:.88rem;color:var(--stone);margin-bottom:36px;font-weight:300}
+.employ-section-label{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:2px;color:var(--clay);margin:32px 0 16px;padding-top:24px;border-top:1px solid rgba(0,0,0,.06)}
+.employ-section-label:first-of-type{margin-top:0;padding-top:0;border-top:none}
+.checkbox-group{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px}
+.checkbox-label{display:flex;align-items:center;gap:8px;font-size:.88rem;color:var(--charcoal);cursor:pointer;padding:8px 14px;background:rgba(0,0,0,.02);border-radius:6px;transition:all .2s;border:1px solid transparent}
+.checkbox-label:hover{background:rgba(224,112,48,.04);border-color:rgba(224,112,48,.15)}
+.checkbox-label input{accent-color:var(--clay-bright);width:16px;height:16px}
+.employ-note{font-size:.78rem;color:var(--warm-gray);font-style:italic;margin-top:8px}
+.employ-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:rgba(58,106,58,.06);border:1px solid rgba(58,106,58,.15);border-radius:8px;margin-bottom:32px}
+.employ-badge span{font-size:.78rem;font-weight:600;color:var(--forest);letter-spacing:1px}
+@media(max-width:960px){.employment{padding:80px 16px}.employ-form{padding:32px 20px}}
+@media(max-width:600px){.checkbox-group{flex-direction:column;gap:8px}}
+
 /* ANIMATIONS */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.25,.46,.45,.94),transform .8s cubic-bezier(.25,.46,.45,.94)}
 .reveal.vis{opacity:1;transform:translateY(0)}
@@ -272,7 +290,7 @@ footer{padding:72px 32px 48px;background:var(--black);text-align:center}
 <!-- NAV -->
 <header class="nav" id="nav"><div class="nav-inner">
   <a href="#" class="nav-logo"><div class="nav-logo-tri"></div><div><div class="nav-logo-text">JERRY MCKAIG</div><div class="nav-logo-sub">CONST. — Grading & Excavation</div></div></a>
-  <div class="nav-links" id="navLinks"><a href="#services">Services</a><a href="#equipment">Equipment</a><a href="#why">Why Us</a><a href="#area">Service Area</a><a href="#contact">Contact</a></div>
+  <div class="nav-links" id="navLinks"><a href="#services">Services</a><a href="#equipment">Equipment</a><a href="#why">Why Us</a><a href="#area">Service Area</a><a href="#careers">Careers</a><a href="#contact">Contact</a></div>
   <a href="tel:4233222592" class="nav-phone">423-322-2592</a>
   <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
 </div></header>
@@ -325,17 +343,17 @@ footer{padding:72px 32px 48px;background:var(--black);text-align:center}
 
 <!-- PHOTO SHOWCASE -->
 <div class="showcase" id="gallery">
-  <div class="showcase-item" data-label="Kubota Excavator" data-full="https://upload.wikimedia.org/wikipedia/commons/f/f3/A_Kubota_KX080-4_excavator.jpg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/A_Kubota_KX080-4_excavator.jpg/800px-A_Kubota_KX080-4_excavator.jpg" alt="Orange Kubota KX080 excavator on construction site" loading="lazy">
+  <div class="showcase-item" data-label="Kubota Excavator" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/A_Kubota_KX080-4_excavator.jpg/1400px-A_Kubota_KX080-4_excavator.jpg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/A_Kubota_KX080-4_excavator.jpg/600px-A_Kubota_KX080-4_excavator.jpg" alt="Orange Kubota KX080 excavator on construction site" loading="lazy">
   </div>
-  <div class="showcase-item" data-label="Cloudland Canyon" data-full="https://upload.wikimedia.org/wikipedia/commons/9/91/View_of_Cloudland_Canyon_State_Park_from_the_Picket_Post_Trail%2C_Trenton%2C_GA.jpg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/View_of_Cloudland_Canyon_State_Park_from_the_Picket_Post_Trail%2C_Trenton%2C_GA.jpg/800px-View_of_Cloudland_Canyon_State_Park_from_the_Picket_Post_Trail%2C_Trenton%2C_GA.jpg" alt="View of Cloudland Canyon State Park, Trenton GA" loading="lazy">
+  <div class="showcase-item" data-label="Cloudland Canyon" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/View_of_Cloudland_Canyon_State_Park_from_the_Picket_Post_Trail%2C_Trenton%2C_GA.jpg/1400px-View_of_Cloudland_Canyon_State_Park_from_the_Picket_Post_Trail%2C_Trenton%2C_GA.jpg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/View_of_Cloudland_Canyon_State_Park_from_the_Picket_Post_Trail%2C_Trenton%2C_GA.jpg/600px-View_of_Cloudland_Canyon_State_Park_from_the_Picket_Post_Trail%2C_Trenton%2C_GA.jpg" alt="View of Cloudland Canyon State Park, Trenton GA" loading="lazy">
   </div>
-  <div class="showcase-item" data-label="Kubota Track Loader" data-full="https://upload.wikimedia.org/wikipedia/commons/b/b8/Kubota_SVL_75_Tracked_Skid_Steer_Loader_%2824770972389%29.jpg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Kubota_SVL_75_Tracked_Skid_Steer_Loader_%2824770972389%29.jpg/800px-Kubota_SVL_75_Tracked_Skid_Steer_Loader_%2824770972389%29.jpg" alt="Orange Kubota SVL75 compact track loader" loading="lazy">
+  <div class="showcase-item" data-label="Kubota Track Loader" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Kubota_SVL_75_Tracked_Skid_Steer_Loader_%2824770972389%29.jpg/1400px-Kubota_SVL_75_Tracked_Skid_Steer_Loader_%2824770972389%29.jpg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Kubota_SVL_75_Tracked_Skid_Steer_Loader_%2824770972389%29.jpg/600px-Kubota_SVL_75_Tracked_Skid_Steer_Loader_%2824770972389%29.jpg" alt="Orange Kubota SVL75 compact track loader" loading="lazy">
   </div>
-  <div class="showcase-item" data-label="Lookout Mountain View" data-full="https://upload.wikimedia.org/wikipedia/commons/f/f4/LookoutMountain_2020.jpg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/LookoutMountain_2020.jpg/800px-LookoutMountain_2020.jpg" alt="Panoramic view from Lookout Mountain, Tennessee" loading="lazy">
+  <div class="showcase-item" data-label="Lookout Mountain View" data-full="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/LookoutMountain_2020.jpg/1400px-LookoutMountain_2020.jpg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/LookoutMountain_2020.jpg/600px-LookoutMountain_2020.jpg" alt="Panoramic view from Lookout Mountain, Tennessee" loading="lazy">
   </div>
 </div>
 
@@ -447,6 +465,150 @@ footer{padding:72px 32px 48px;background:var(--black);text-align:center}
   <a href="#contact" class="btn-white reveal">Request Your Free Estimate →</a>
 </section>
 
+<!-- EMPLOYMENT -->
+<section class="employment" id="careers">
+  <div class="employ-inner">
+    <div class="section-center reveal">
+      <div class="section-tag">Join the Crew</div>
+      <div class="section-heading">WE'RE HIRING</div>
+      <p class="section-sub">Looking for experienced operators, laborers, and CDL drivers who want to do real mountain work. Good pay, steady hours, and a crew that treats you right.</p>
+      <div class="section-bar"></div>
+    </div>
+    <div class="employ-form reveal">
+      <div class="employ-badge"><span>🟢</span><span>Now Hiring — Multiple Positions</span></div>
+      <div class="form-title">EMPLOYMENT APPLICATION</div>
+      <p class="form-sub">Fill out the form below. We'll call you within a couple days.</p>
+      <form id="employForm" onsubmit="handleEmploySubmit(event)">
+
+        <div class="employ-section-label">PERSONAL INFORMATION</div>
+        <div class="form-row">
+          <div class="form-group"><label>First Name *</label><input type="text" name="emp_first_name" placeholder="First name" required></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" name="emp_last_name" placeholder="Last name" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Phone *</label><input type="tel" name="emp_phone" placeholder="(423) 555-0000" required></div>
+          <div class="form-group"><label>Email</label><input type="email" name="emp_email" placeholder="you@example.com"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group full"><label>Address</label><input type="text" name="emp_address" placeholder="Street, City, State, Zip"></div>
+        </div>
+
+        <div class="employ-section-label">POSITION & AVAILABILITY</div>
+        <div class="form-row">
+          <div class="form-group"><label>Position Applying For *</label>
+            <select name="emp_position" required>
+              <option value="">Select position...</option>
+              <option>Equipment Operator — Excavator</option>
+              <option>Equipment Operator — Skid Steer / Track Loader</option>
+              <option>CDL Dump Truck Driver</option>
+              <option>General Laborer</option>
+              <option>Foreman / Lead</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Available Start Date</label><input type="date" name="emp_start_date"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group full"><label>Do you have a valid driver's license? *</label>
+            <select name="emp_license" required>
+              <option value="">Select...</option>
+              <option>Yes — CDL Class A</option>
+              <option>Yes — CDL Class B</option>
+              <option>Yes — Regular License</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="employ-section-label">EQUIPMENT EXPERIENCE</div>
+        <p class="employ-note">Check all equipment you have experience operating:</p>
+        <div class="checkbox-group">
+          <label class="checkbox-label"><input type="checkbox" name="exp_excavator" value="yes"> Excavator</label>
+          <label class="checkbox-label"><input type="checkbox" name="exp_skidsteer" value="yes"> Skid Steer</label>
+          <label class="checkbox-label"><input type="checkbox" name="exp_trackloader" value="yes"> Track Loader</label>
+          <label class="checkbox-label"><input type="checkbox" name="exp_dozer" value="yes"> Bulldozer</label>
+          <label class="checkbox-label"><input type="checkbox" name="exp_grader" value="yes"> Motor Grader</label>
+          <label class="checkbox-label"><input type="checkbox" name="exp_dumptruck" value="yes"> Dump Truck</label>
+          <label class="checkbox-label"><input type="checkbox" name="exp_roller" value="yes"> Roller / Compactor</label>
+          <label class="checkbox-label"><input type="checkbox" name="exp_chainsaw" value="yes"> Chainsaw / Land Clearing</label>
+        </div>
+        <div class="form-row" style="margin-top:18px">
+          <div class="form-group"><label>Years of Grading/Excavation Experience</label>
+            <select name="emp_years_exp">
+              <option value="">Select...</option>
+              <option>Less than 1 year</option>
+              <option>1-3 years</option>
+              <option>3-5 years</option>
+              <option>5-10 years</option>
+              <option>10+ years</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Kubota Equipment Experience?</label>
+            <select name="emp_kubota_exp">
+              <option value="">Select...</option>
+              <option>Yes — extensive</option>
+              <option>Yes — some</option>
+              <option>No, but willing to learn</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="employ-section-label">WORK HISTORY</div>
+        <div class="form-row">
+          <div class="form-group full"><label>Most Recent Employer</label><input type="text" name="emp_employer1" placeholder="Company name"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Job Title / Role</label><input type="text" name="emp_title1" placeholder="e.g. Excavator Operator"></div>
+          <div class="form-group"><label>How Long?</label><input type="text" name="emp_duration1" placeholder="e.g. 3 years"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group full"><label>Reason for Leaving</label><input type="text" name="emp_reason1" placeholder="e.g. Seasonal layoff, looking for steady work"></div>
+        </div>
+
+        <div class="form-row" style="margin-top:24px">
+          <div class="form-group full"><label>Previous Employer (optional)</label><input type="text" name="emp_employer2" placeholder="Company name"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Job Title / Role</label><input type="text" name="emp_title2" placeholder="e.g. Laborer"></div>
+          <div class="form-group"><label>How Long?</label><input type="text" name="emp_duration2" placeholder="e.g. 2 years"></div>
+        </div>
+
+        <div class="employ-section-label">ADDITIONAL INFO</div>
+        <div class="form-row">
+          <div class="form-group full"><label>Can you pass a drug test? *</label>
+            <select name="emp_drug_test" required>
+              <option value="">Select...</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group full"><label>Do you have reliable transportation to Rising Fawn, GA? *</label>
+            <select name="emp_transportation" required>
+              <option value="">Select...</option>
+              <option>Yes</option>
+              <option>No, but can arrange</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group full"><label>Anything else you'd like us to know?</label>
+            <textarea name="emp_notes" placeholder="Certifications, references, special skills, why you want to work at McKaig — anything you'd like to share."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="form-btn">Submit Application →</button>
+      </form>
+      <div class="form-success" id="employSuccess">
+        <h4>✓ APPLICATION RECEIVED!</h4>
+        <p>Thanks for your interest! Jerry or a crew lead will review your application and call you within a couple days. For questions, call <a href="tel:4233222592" style="color:var(--clay);font-weight:600">423-322-2592</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact"><div class="contact-inner">
   <div class="contact-left">
@@ -479,7 +641,7 @@ footer{padding:72px 32px 48px;background:var(--black);text-align:center}
 <footer>
   <a href="tel:4233222592" class="f-phone">423-322-2592</a>
   <div class="f-logo"><div class="f-logo-tri"></div><div class="f-logo-name">JERRY MCKAIG CONST.</div></div>
-  <div class="f-links"><a href="#services">Services</a><a href="#equipment">Equipment</a><a href="#why">Why Us</a><a href="#area">Service Area</a><a href="#contact">Contact</a></div>
+  <div class="f-links"><a href="#services">Services</a><a href="#equipment">Equipment</a><a href="#why">Why Us</a><a href="#area">Service Area</a><a href="#careers">Careers</a><a href="#contact">Contact</a></div>
   <div class="f-divider"></div>
   <p class="f-copy">© 2026 Jerry McKaig Const. All rights reserved.<br>315 Scenic Hwy · Rising Fawn, GA 30738 · Serving TN · GA · AL</p>
 </footer>
@@ -602,6 +764,28 @@ document.getElementById('lightbox').addEventListener('touchend', e => {
   const diff = e.changedTouches[0].screenX - touchStartX;
   if (Math.abs(diff) > 50) navigateLightbox(diff > 0 ? -1 : 1);
 }, { passive: true });
+
+// Employment form submission
+function handleEmploySubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('employForm');
+  const formData = new FormData(form);
+  fetch('https://formspree.io/f/xwpkgjvq', {
+    method: 'POST',
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  }).then(r => {
+    if (r.ok) {
+      form.style.display = 'none';
+      form.previousElementSibling.style.display = 'none'; // form-sub
+      form.previousElementSibling.previousElementSibling.style.display = 'none'; // form-title
+      document.getElementById('employSuccess').classList.add('show');
+    }
+  }).catch(() => {
+    const name = formData.get('emp_first_name') + ' ' + formData.get('emp_last_name');
+    window.location.href = 'mailto:jmckaigconst@aol.com?subject=Employment Application - ' + name;
+  });
+}
 
 // Form submission
 function handleSubmit(e) {
